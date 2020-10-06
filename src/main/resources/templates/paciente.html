@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>paciente</title>
+  </head>
+<body>
+
+<form method="post">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Nome" name="nomeExame">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Email" name="pedido">
+          </div>
+		<div class="col">
+            <input type="text" class="form-control" placeholder="Endereço" name="realizado">
+          </div>
+           <div class="col">
+            <input type="text" class="form-control" placeholder="Data De Nascimento" name="resultado">
+          </div>
+<div class="col">
+            <input type="text" class="form-control" placeholder="CPF" name="cpf">
+          </div>
+          <button type="submit" class="btn btn-primary">Adicionar</button>
+      </form>
+
+             <tbody>
+        <tr th:each="ExameModel : ${exame_model}" >
+        <th th:text="${ExameModel.resultado}" scope="row"></th>
+
+
+      </tbody>
+</body>
+</html>

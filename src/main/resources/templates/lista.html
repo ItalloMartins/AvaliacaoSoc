@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Lista</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  </head>
+<body>
+  
+  <div class="container">
+  <div class="card">
+    <div class="card-header">
+      Cadastro de Pacientes
+      </div><div class="card-body">
+<form method="post" name="formCadastro">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Nome" name="name" required>
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Email" name="email" required>
+          </div>
+		<div class="col">
+            <input type="text" class="form-control" placeholder="Endereço" name="endereco" required>
+          </div>
+           <div class="col">
+            <input type="text" class="form-control" placeholder="Data De Nascimento" name="nascimento" required>
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Telefone" name="telefone" id="telefone" maxlength="15" required>
+          </div>
+		<div class="col">
+            <input type="text" class="form-control" placeholder="CPF" name="cpf" required>
+          </div>
+          <div class="col" style="margin-top: 8px;">
+          <button type="submit" class="btn btn-primary" onclick="validar()">Adicionar</button>
+        </div>
+      </form>
+    </div></div>
+</body>
+<script>
+
+  function validar(){
+    var nome = formCadastro.name;
+    var email = formCadastro.email;
+    var endereco = formCadastro.endereco;
+    var dataN = formCadastro.nascimento;
+    var telefone = formCadastro.telefone;
+    var cpf = formCadastro.cpf;
+
+    if(nome.value == ""){
+      alert("Preencha o nome");
+      nome.focus();
+    }
+    if(email.value == ""){
+      alert("Preencha o Email");
+      nome.focus();
+    }
+    if(nascimento.value == ""){
+      alert("Preencha a Data de Nascimento");
+      nome.focus();
+    }
+    if(telefone.value == ""){
+      alert("Preencha o Telefone");
+      nome.focus();
+    }
+    if(cpf.value == ""){
+      alert("Preencha o CPF");
+      nome.focus();
+    }
+
+  }
+
+</script>
+
+<script>
+  /* Máscaras ER */
+function mascara(o,f){
+        v_obj=o
+        v_fun=f
+        setTimeout("execmascara()",1)
+    }
+    function execmascara(){
+        v_obj.value=v_fun(v_obj.value)
+    }
+    function mtel(v){
+        v=v.replace(/D/g,"");             //Remove tudo o que não é dígito
+        v=v.replace(/^(d{2})(d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+        v=v.replace(/(d)(d{4})$/,"$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
+        return v;
+    }
+    function id( el ){
+        return document.getElementById( el );
+    }
+    window.onload = function(){
+        id('telefone').onkeypress = function(){
+            mascara( this, mtel );
+        }
+    }
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</html>
